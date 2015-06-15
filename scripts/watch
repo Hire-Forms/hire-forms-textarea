@@ -1,0 +1,10 @@
+#!/bin/sh
+
+node_modules/.bin/browserify index.jsx \
+	--transform [ babelify --plugins object-assign ] \
+	--extension=.jsx \
+	--outfile index.js \
+	--detect-globals false \
+	--verbose \
+	--external react \
+	--standalone HireFormsTextarea > index.js
