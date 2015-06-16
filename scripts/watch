@@ -1,10 +1,11 @@
 #!/bin/sh
 
-node_modules/.bin/browserify index.jsx \
-	--transform [ babelify --plugins object-assign ] \
-	--extension=.jsx \
-	--outfile index.js \
+node_modules/.bin/watchify src/index.jsx \
 	--detect-globals false \
-	--verbose \
+	--extension=.jsx \
+	--external classnames \
 	--external react \
-	--standalone HireFormsTextarea > index.js
+	--outfile build/index.js \
+	--standalone HireFormsTextarea \
+	--transform [ babelify --plugins object-assign ] \
+	--verbose
