@@ -1,9 +1,10 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import cx from "classnames";
 
 class Textarea extends React.Component {
 	componentDidMount() {
-		this.adjustHeight(React.findDOMNode(this));
+		this.adjustHeight(ReactDOM.findDOMNode(this));
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -26,7 +27,7 @@ class Textarea extends React.Component {
 	}
 
 	adjustHeight() {
-		let textarea = React.findDOMNode(this);
+		let textarea = ReactDOM.findDOMNode(this);
 
 		textarea.style.height = "auto";
 		textarea.style.height = (textarea.scrollHeight + 6 > 32) ?
