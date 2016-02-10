@@ -19,6 +19,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require("react-dom");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -37,7 +41,7 @@ var Textarea = (function (_React$Component) {
 	_createClass(Textarea, [{
 		key: "componentDidMount",
 		value: function componentDidMount() {
-			this.adjustHeight(_react2["default"].findDOMNode(this));
+			this.adjustHeight(_reactDom2["default"].findDOMNode(this));
 		}
 	}, {
 		key: "shouldComponentUpdate",
@@ -57,7 +61,7 @@ var Textarea = (function (_React$Component) {
 	}, {
 		key: "adjustHeight",
 		value: function adjustHeight() {
-			var textarea = _react2["default"].findDOMNode(this);
+			var textarea = _reactDom2["default"].findDOMNode(this);
 
 			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + 6 > 32 ? textarea.scrollHeight + 6 + "px" : "32px";
@@ -123,5 +127,5 @@ Textarea.propTypes = {
 exports["default"] = Textarea;
 module.exports = exports["default"];
 
-},{"classnames":"classnames","react":"react"}]},{},[1])(1)
+},{"classnames":"classnames","react":"react","react-dom":"react-dom"}]},{},[1])(1)
 });
