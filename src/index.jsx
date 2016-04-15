@@ -2,6 +2,12 @@ import React from "react";
 import cx from "classnames";
 
 class Textarea extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {focus: false};
+	}
+
 	componentDidMount() {
 		this.adjustHeight(React.findDOMNode(this));
 	}
@@ -17,12 +23,6 @@ class Textarea extends React.Component {
 		if (this.props.value !== prevProps.value) {
 			this.adjustHeight();
 		}
-	}
-
-	constructor(props) {
-		super(props);
-
-		this.state = {focus: false};
 	}
 
 	adjustHeight() {
