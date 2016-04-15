@@ -1,3 +1,6 @@
+### v1.0.5	(2016/4/15 11:0)
+* Move constructor to top
+
 ### v1.0.4	(2015/6/17 13:32)
 * Add eslint
 
