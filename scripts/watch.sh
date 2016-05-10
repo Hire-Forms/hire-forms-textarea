@@ -8,5 +8,5 @@ node_modules/.bin/watchify src/index.jsx \
 	--external react-dom \
 	--outfile build/index.js \
 	--standalone HireFormsTextarea \
-	--transform [ babelify --plugins object-assign ] \
+	--transform [ babelify ] \
 	--verbose
