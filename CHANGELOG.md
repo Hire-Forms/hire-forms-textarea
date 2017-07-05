@@ -1,3 +1,6 @@
+### v2.0.1	(2017/7/5 21:54)
+* Refactor to TypeScript
+
 ### v2.0.0	(2016/5/10 12:5)
 * Bump react peers to 15.0.2
 * Remove babel plugin object-assign
