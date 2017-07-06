@@ -22,6 +22,12 @@ class Textarea extends React.Component {
                 this.props.onKeyUp(ev);
             }
         };
+        this.handleMouseUp = (ev) => {
+            if (this.props.onMouseUp) {
+                console.log('up');
+                this.props.onMouseUp(ev);
+            }
+        };
         this.handleChange = (ev) => {
             this.props.onChange(ev.currentTarget.value, ev);
         };
@@ -42,10 +48,9 @@ class Textarea extends React.Component {
         }
     }
     render() {
-        return (React.createElement("textarea", { className: cx("hire-forms-textarea", { focus: this.state.focus }, this.props.className), onBlur: this.toggleFocus, onChange: this.handleChange, onFocus: this.toggleFocus, onKeyDown: this.handleKeyDown, onKeyUp: this.handleKeyUp, placeholder: this.props.placeholder, ref: (node) => { this.node = node; }, style: this.props.style, value: this.props.value }));
+        return (React.createElement("textarea", { className: cx("hire-forms-textarea", { focus: this.state.focus }, this.props.className), onBlur: this.toggleFocus, onChange: this.handleChange, onFocus: this.toggleFocus, onKeyDown: this.handleKeyDown, onKeyUp: this.handleKeyUp, onMouseUp: this.handleMouseUp, placeholder: this.props.placeholder, ref: (node) => { this.node = node; }, style: this.props.style, value: this.props.value }));
     }
     adjustHeight() {
-        console.log('yea');
         this.node.style.height = "auto";
         this.node.style.height = (this.node.scrollHeight + 6 > 32) ?
             (this.node.scrollHeight + 6) + "px" :

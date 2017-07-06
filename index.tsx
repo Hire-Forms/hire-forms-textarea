@@ -8,6 +8,7 @@ interface IProps {
 	onChange: (value: string, ev: ChangeEvent<HTMLTextAreaElement>) => void;
 	onKeyDown?: (ev: KeyboardEvent) => void;
 	onKeyUp?: (ev: KeyboardEvent) => void;
+	onMouseUp?: (ev: MouseEvent) => void;
 	placeholder?: string;
 	style?: CSSProperties;
 	value: string;
@@ -54,6 +55,7 @@ class Textarea extends React.Component<IProps, IState> {
 				onFocus={this.toggleFocus}
 				onKeyDown={this.handleKeyDown}
 				onKeyUp={this.handleKeyUp}
+				onMouseUp={this.handleMouseUp}
 				placeholder={this.props.placeholder}
 				ref={(node) => { this.node = node; }}
 				style={this.props.style}
@@ -63,7 +65,6 @@ class Textarea extends React.Component<IProps, IState> {
 	}
 
 	private adjustHeight() {
-		console.log('yea');
 		this.node.style.height = "auto";
 		this.node.style.height = (this.node.scrollHeight + 6 > 32) ?
 			(this.node.scrollHeight + 6) + "px" :
@@ -83,6 +84,12 @@ class Textarea extends React.Component<IProps, IState> {
 	private handleKeyUp = (ev) => {
 		if (this.props.onKeyUp) {
 			this.props.onKeyUp(ev);
+		}
+	};
+
+	private handleMouseUp = (ev) => {
+		if (this.props.onMouseUp) {
+			this.props.onMouseUp(ev);
 		}
 	};
 
