@@ -1,3 +1,6 @@
+### v2.1.0	(2017/7/6 12:37)
+* Add autoresize prop
+
 ### v2.0.1	(2017/7/5 21:54)
 * Refactor to TypeScript
 
