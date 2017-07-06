@@ -5,7 +5,10 @@ const cx = require("classnames");
 class Textarea extends React.Component {
     constructor() {
         super(...arguments);
-        this.state = { focus: false };
+        this.state = {
+            autoresize: (this.props.autoresize == null) ? false : true,
+            focus: false,
+        };
         this.toggleFocus = () => {
             this.setState({ focus: !this.state.focus });
         };
@@ -24,7 +27,8 @@ class Textarea extends React.Component {
         };
     }
     componentDidMount() {
-        this.adjustHeight();
+        if (this.state.autoresize)
+            this.adjustHeight();
     }
     shouldComponentUpdate(nextProps, nextState) {
         let propsValueChange = this.props.value !== nextProps.value;
@@ -33,13 +37,15 @@ class Textarea extends React.Component {
     }
     componentDidUpdate(prevProps) {
         if (this.props.value !== prevProps.value) {
-            this.adjustHeight();
+            if (this.state.autoresize)
+                this.adjustHeight();
         }
     }
     render() {
         return (React.createElement("textarea", { className: cx("hire-forms-textarea", { focus: this.state.focus }, this.props.className), onBlur: this.toggleFocus, onChange: this.handleChange, onFocus: this.toggleFocus, onKeyDown: this.handleKeyDown, onKeyUp: this.handleKeyUp, placeholder: this.props.placeholder, ref: (node) => { this.node = node; }, style: this.props.style, value: this.props.value }));
     }
     adjustHeight() {
+        console.log('yea');
         this.node.style.height = "auto";
         this.node.style.height = (this.node.scrollHeight + 6 > 32) ?
             (this.node.scrollHeight + 6) + "px" :

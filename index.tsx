@@ -18,11 +18,14 @@ interface IState {
 }
 
 class Textarea extends React.Component<IProps, IState> {
-	public state = {focus: false};
+	public state = {
+		autoresize: (this.props.autoresize == null) ? false : true,
+		focus: false,
+	};
 	private node;
 
 	public componentDidMount() {
-		this.adjustHeight();
+		if (this.state.autoresize) this.adjustHeight();
 	}
 
 	public shouldComponentUpdate(nextProps, nextState) {
@@ -34,7 +37,7 @@ class Textarea extends React.Component<IProps, IState> {
 
 	public componentDidUpdate(prevProps) {
 		if (this.props.value !== prevProps.value) {
-			this.adjustHeight();
+			if (this.state.autoresize) this.adjustHeight();
 		}
 	}
 
@@ -60,6 +63,7 @@ class Textarea extends React.Component<IProps, IState> {
 	}
 
 	private adjustHeight() {
+		console.log('yea');
 		this.node.style.height = "auto";
 		this.node.style.height = (this.node.scrollHeight + 6 > 32) ?
 			(this.node.scrollHeight + 6) + "px" :
