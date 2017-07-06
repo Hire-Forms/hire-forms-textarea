@@ -1,3 +1,6 @@
+### v2.2.0	(2017/7/6 21:34)
+* Add onMouseUp prop
+
 ### v2.1.0	(2017/7/6 12:37)
 * Add autoresize prop
 
