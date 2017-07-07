@@ -24,7 +24,6 @@ class Textarea extends React.Component {
         };
         this.handleMouseUp = (ev) => {
             if (this.props.onMouseUp) {
-                console.log('up');
                 this.props.onMouseUp(ev);
             }
         };
