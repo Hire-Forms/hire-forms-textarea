@@ -20,7 +20,7 @@ interface IState {
 
 class Textarea extends React.Component<IProps, IState> {
 	public state = {
-		autoresize: (this.props.autoresize == null) ? false : true,
+		autoresize: this.props.autoresize != null,
 		focus: false,
 	};
 	private node;

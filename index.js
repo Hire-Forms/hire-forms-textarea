@@ -6,7 +6,7 @@ class Textarea extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
-            autoresize: (this.props.autoresize == null) ? false : true,
+            autoresize: this.props.autoresize != null,
             focus: false,
         };
         this.toggleFocus = () => {
