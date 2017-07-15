@@ -1,3 +1,7 @@
+### v2.2.1	(2017/7/15 11:6)
+* Simplify autoreszie prop
+* Add package.lock.json
+
 ### v2.2.0	(2017/7/6 21:34)
 * Add onMouseUp prop
 
