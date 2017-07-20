@@ -1,3 +1,6 @@
+### v2.3.0	(2017/7/20 16:3)
+* Add onInput
+
 ### v2.2.1	(2017/7/15 11:6)
 * Simplify autoreszie prop
 * Add package.lock.json
