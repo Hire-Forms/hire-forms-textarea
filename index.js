@@ -8,11 +8,13 @@ class Textarea extends React.Component {
         this.state = {
             autoresize: this.props.autoresize != null,
             focus: false,
+            keyCode: null,
         };
         this.toggleFocus = () => {
             this.setState({ focus: !this.state.focus });
         };
         this.handleKeyDown = (ev) => {
+            this.setState({ keyCode: ev.keyCode });
             if (this.props.onKeyDown) {
                 this.props.onKeyDown(ev);
             }
@@ -28,7 +30,14 @@ class Textarea extends React.Component {
             }
         };
         this.handleChange = (ev) => {
-            this.props.onChange(ev.currentTarget.value, ev);
+            if (this.props.onChange) {
+                this.props.onChange(ev.currentTarget.value, ev);
+            }
+        };
+        this.handleInput = (ev) => {
+            if (this.props.onInput) {
+                this.props.onInput(ev.currentTarget.value, ev, this.state.keyCode);
+            }
         };
     }
     componentDidMount() {
@@ -47,7 +56,7 @@ class Textarea extends React.Component {
         }
     }
     render() {
-        return (React.createElement("textarea", { className: cx("hire-forms-textarea", { focus: this.state.focus }, this.props.className), onBlur: this.toggleFocus, onChange: this.handleChange, onFocus: this.toggleFocus, onKeyDown: this.handleKeyDown, onKeyUp: this.handleKeyUp, onMouseUp: this.handleMouseUp, placeholder: this.props.placeholder, ref: (node) => { this.node = node; }, style: this.props.style, value: this.props.value }));
+        return (React.createElement("textarea", { className: cx("hire-forms-textarea", { focus: this.state.focus }, this.props.className), onBlur: this.toggleFocus, onChange: this.handleChange, onFocus: this.toggleFocus, onInput: this.handleInput, onKeyDown: this.handleKeyDown, onKeyUp: this.handleKeyUp, onMouseUp: this.handleMouseUp, placeholder: this.props.placeholder, ref: (node) => { this.node = node; }, style: this.props.style, value: this.props.value }));
     }
     adjustHeight() {
         this.node.style.height = "auto";
